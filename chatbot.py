@@ -43,7 +43,6 @@ async def startmsg(_, message):
     filters.text 
     & filters.private 
     & ~filters.edited 
-    & ~filters.bot 
     & ~filters.channel 
     & ~filters.forwarded,
     group=1)
