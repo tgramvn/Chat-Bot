@@ -41,10 +41,7 @@ async def startmsg(_, message):
 
 @bot.on_message(
     filters.text 
-    & filters.private 
-    & ~filters.edited 
-    & ~filters.channel 
-    & ~filters.forwarded,
+    & filters.private,
     group=1)
 async def chatbot(_, message):
     if message.text[0] == "/":
