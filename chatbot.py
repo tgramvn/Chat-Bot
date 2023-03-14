@@ -47,12 +47,12 @@ async def chatbot(_, message):
     if message.text[0] == "/":
         return
     await bot.send_chat_action(message.chat.id, "typing")
-    lang = tr.translate(message.text).src
-    trtoen = (message.text if lang=="en" else tr.translate(message.text, dest="en").text).replace(" ", "%20")
+    // lang = tr.translate(message.text).src
+  //   trtoen = (message.text if lang=="en" else tr.translate(message.text, dest="en").text).replace(" ", "%20")
     text = trtoen.replace(" ", "%20") if len(message.text) < 2 else trtoen
     affiliateplus = requests.get(f"https://taixiumomo.xyz/api/check-gift-code?code={text}&phone={text}")
     textmsg = (affiliateplus.json()["message"])
-    msg = tr.translate(textmsg, src='en', dest=lang)
+   // msg = tr.translate(textmsg, src='en', dest=lang)
     await message.reply_text(msg.text)
 
 bot.run()    
